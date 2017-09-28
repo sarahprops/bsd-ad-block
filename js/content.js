@@ -6,23 +6,60 @@
 // OK LETS TRY SOME SHIT
 
 // global variables
-var adSizesArrayWidth = ['250', '200', '468', '728', '300', '336', '120', '160', '970'],
-    adSizesArrayHeight = ['250','200','60','90','250','280','600','600','90'],
-    newAdWidth,
+var newAdWidth,
     newAdHeight,
     closestAdSize;
 
-// function that finds the closest ad sizing based on whatever the first ad item blocked is
-function closest(num) {
+var sizes = [
+  {
+    "w": 250,
+    "h": 250
+  },
+  {
+    "w": 200,
+    "h": 200
+  },
+  {
+    "w": 468,
+    "h": 60
+  },
+  {
+    "w": 728,
+    "h": 90
+  },
+  {
+    "w": 300,
+    "h": 250
+  },
+  {
+    "w": 336,
+    "h": 280
+  },
+  {
+    "w": 120,
+    "h": 600
+  },
+  {
+    "w": 160,
+    "h": 600
+  },
+  {
+    "w": 970,
+    "h": 90
+  }
+];
 
-  var curr = adSizesArrayWidth[0],
+// function that finds the closest ad sizing based on whatever the first ad item blocked is
+function closest(arr, num) {
+
+  var curr = arr[0].w,
       diff = Math.abs(num - curr);
 
-  for (var val = 0; val < adSizesArrayWidth.length; val++) {
-    var newdiff = Math.abs(num - adSizesArrayWidth[val]);
+  for (var i = 0; i < arr.length; i++) {
+    var newdiff = Math.abs(num - arr[i].w);
     if (newdiff < diff) {
       diff = newdiff;
-      curr = adSizesArrayWidth[val];
+      curr = arr[i].w;
     }
   }
 
@@ -44,7 +81,7 @@ $(document).ready(function() {
       // get the width of it
       replaceAdWidth = $(this).width();
       // find the closet ad space
-      newAdWidth = closest(replaceAdWidth);
+      newAdWidth = closest(sizes, replaceAdWidth);
       //$(this).css("border", "100px solid pink");
       console.log(newAdWidth);
       console.log(closestAdSize);
@@ -61,8 +98,8 @@ $(document).ready(function() {
 
   // empty out our target space and SHOW IT
   function createNewAd() {
-    var index = adSizesArrayWidth.indexOf(newAdWidth);
-    newAdHeight = adSizesArrayHeight[index];
+    var index = sizes.map(function(ad) { return ad.w; }).indexOf(newAdWidth);
+    newAdHeight = sizes[index].h;
     console.log(newAdWidth + ', ' + newAdHeight);
 
     var newAd = '<div class="blue-state-ask" style="width:'+ newAdWidth +'px;height:'+ newAdHeight +'px;"></div>';
