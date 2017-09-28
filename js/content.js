@@ -80,17 +80,14 @@ function createNewAd(client, sizeArr) {
     finalAsk = finalCount;
   }
 
-  var newAd = '<div id="blue-state-ask"' +
-    'style="width:' + newAdWidth + 'px; min-height:' + newAdHeight + 'px;">' +
-    '<h3><a href="' + client.url + '">We blocked ' + finalCount + ' ads on this page. Consider donating $' +
-    finalAsk + ' to ' + client.title + '</a></h3></div>';
+  var newAd = '<a id="blue-state-ask" target="_blank" href="' + client.url + '"' + 'style="width:' + newAdWidth + 'px; min-height:' + newAdHeight + 'px;">' + 'We blocked ' + finalCount + ' ads on this page. Consider donating $' + finalAsk + ' to ' + client.title + '</a>';
 
   $('.replaceThisItem').append(newAd).show();
 }
 
 // do all this stuff only when the page finishes loading
 $(document).ready(function() {
-  var ads = $('.ad, [class*=dfp], [data-google-query-id]'),
+  var ads = $('.ad, [class*=dfp], [data-google-query-id], [id*=adzerk]'),
     counter = 0;
 
   sizes = getJSONData(chrome.extension.getURL('data/clients.json'));

@@ -1,9 +1,7 @@
 #blue-state-ask {
   align-items: center;
-  background-color: #212945;
-  background-position: left bottom;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background: #303bb3;
+  background: linear-gradient(to top, #303bb3 0%, #009bde 100%);
   box-sizing: border-box;
   color: #fff;
   display: flex;
@@ -12,6 +10,7 @@
   margin: auto;
   max-width: 100%;
   padding: 20px;
+  -webkit-font-smoothing: antialiased;
 }
 
 [id*=google_ad]{
