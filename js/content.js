@@ -47,18 +47,28 @@ function shuffle(array) {
 
 // LETS CREATE US A NEW ADD
 function createNewAd(client) {
-  var finalAsk = null;
+  var finalAsk = null,
+      adPronoun = 'ads';
 
   // Ask limits - if there are more than 25 ads, only ask for $25
   if (finalCount > 25) {
     finalAsk = 25;
   } else {
     finalAsk = finalCount;
+    if(finalCount===1){
+      adPronoun = 'ad';
+    }
   }
 
+<<<<<<< HEAD
   var newAd = '<div id="blue-state-ask"><a id="blue-state-ask__bar"' +
     'target="_blank" href="' + client.url + '?default_amt=' + finalCount +
     '"><span> We blocked ' + finalCount + ' ads on this page. ' +
+=======
+  var newAd = '<a id="blue-state-ask" target="_blank" href="' +
+    client.url + '?default_amt=' + finalCount + '"><span>' +
+    'We blocked ' + finalCount + ' ' + adPronoun + ' on this page. ' +
+>>>>>>> a7b0794e3f405f28203d21d9c1a475a10100cb17
     '<strong>Consider donating $' + finalAsk + ' to ' + client.title +
     '</strong>.</span></a><a id="blue-state-ask__expander">▲</a></div>';
 
@@ -67,8 +77,10 @@ function createNewAd(client) {
 
 // do all this stuff only when the page finishes loading
 $(document).ready(function() {
-  var ads = $('.ad, [class*=dfp], [data-google-query-id], [id*=adzerk]'),
+  var ads = $('.ad, [class*=dfp], [id*=google_ad], [id^=ad], [class^=ad], [src*=ads], [class*=ads], iframe'),
     counter = 0;
+
+    console.log(ads);
 
   sizes = getJSONData(chrome.extension.getURL('data/clients.json'));
 
