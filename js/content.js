@@ -47,18 +47,22 @@ function shuffle(array) {
 
 // LETS CREATE US A NEW ADD
 function createNewAd(client) {
-  var finalAsk = null;
+  var finalAsk = null,
+      adPronoun = 'ads';
 
   // Ask limits - if there are more than 25 ads, only ask for $25
   if (finalCount > 25) {
     finalAsk = 25;
   } else {
     finalAsk = finalCount;
+    if(finalCount===1){
+      adPronoun = 'ad';
+    }
   }
 
   var newAd = '<a id="blue-state-ask" target="_blank" href="' +
     client.url + '?default_amt=' + finalCount + '"><span>' +
-    'We blocked ' + finalCount + ' ads on this page. ' +
+    'We blocked ' + finalCount + ' ' + adPronoun + ' on this page. ' +
     '<strong>Consider donating $' + finalAsk + ' to ' + client.title +
     '</strong>.</span></a>';
 
