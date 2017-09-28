@@ -81,14 +81,15 @@ $(document).ready(function() {
   // globalize that var
   finalCount = counter;
 
-});
-
-// only create the new ad after the page finishes loading
-$(window).load(function() {
   var clients = getJSONData(chrome.extension.getURL('data/clients.json')),
   clientsRandomized = shuffle(clients);
 
   if (finalCount > 0) {
     createNewAd(clientsRandomized[0]);
   }
+});
+
+// only create the new ad after the page finishes loading
+$(window).load(function() {
+  $('body').addClass('bsd-ad-loaded');
 });
