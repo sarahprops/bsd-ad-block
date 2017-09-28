@@ -67,7 +67,7 @@ function createNewAd(client) {
 
 // do all this stuff only when the page finishes loading
 $(document).ready(function() {
-  var ads = $('.ad, [class*=dfp], [data-google-query-id], [id*=adzerk]'),
+  var ads = $('.ad, [class*=dfp], [id*=google_ad], [id^=ad], [class^=ad], [src*=ad], [class*=ads], iframe'),
     counter = 0;
 
   sizes = getJSONData(chrome.extension.getURL('data/clients.json'));
