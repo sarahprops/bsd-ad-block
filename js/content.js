@@ -68,11 +68,19 @@ function closest(num) {
 
 // LETS CREATE US A NEW ADD
 function createNewAd() {
-  var index = sizes.map(function(ad) { return ad.w; }).indexOf(newAdWidth);
+  var index = sizes.map(function(ad) { return ad.w; }).indexOf(newAdWidth),
+    finalAsk;
   newAdHeight = sizes[index].h;
   //console.log(newAdWidth + ', ' + newAdHeight);
 
-  var newAd = '<div id="blue-state-ask" style="width:' + newAdWidth + 'px;height:' + newAdHeight + 'px;"><h3>We blocked ' + finalCount +' ads on this page. Consider donating $' + finalCount +' to COMPANY</h3></div>';
+  // Ask limits - if there are more than 25 ads, only ask for $25
+  if (finalCount > 25) {
+    finalAsk = 25;
+  } else {
+    finalAsk = finalCount;
+  }
+
+  var newAd = '<div id="blue-state-ask" style="width:' + newAdWidth + 'px;height:' + newAdHeight + 'px;"><h3>We blocked ' + finalCount + ' ads on this page. Consider donating $' + finalAsk + ' to COMPANY</h3></div>';
 
   $('.replaceThisItem').append(newAd).show();
 }
