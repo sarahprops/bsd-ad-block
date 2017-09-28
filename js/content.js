@@ -6,28 +6,7 @@
 // OK LETS TRY SOME SHIT
 
 // global variables
-var newAdWidth = null,
-  newAdHeight = null,
-  closestAdSize = null,
-  finalCount = null,
-  sizes = null;
-
-// function that finds the closest ad sizing based on whatever the first ad item blocked is
-function closest(num, sizeArr) {
-
-  var curr = sizeArr[0].w,
-    diff = Math.abs(num - curr);
-
-  for (var i = 0; i < sizeArr.length; i++) {
-    var newdiff = Math.abs(num - sizeArr[i].w);
-    if (newdiff < diff) {
-      diff = newdiff;
-      curr = sizeArr[i].w;
-    }
-  }
-
-  return curr;
-}
+var finalCount = null;
 
 function getJSONData(url) {
   var data = null;
@@ -67,11 +46,8 @@ function shuffle(array) {
 }
 
 // LETS CREATE US A NEW ADD
-function createNewAd(client, sizeArr) {
-  var index = sizeArr.map(function(ad) { return ad.w; }).indexOf(newAdWidth),
-    finalAsk;
-  newAdHeight = sizeArr[index].h;
-  //console.log(newAdWidth + ', ' + newAdHeight);
+function createNewAd(client) {
+  var finalAsk = null;
 
   // Ask limits - if there are more than 25 ads, only ask for $25
   if (finalCount > 25) {
@@ -80,9 +56,11 @@ function createNewAd(client, sizeArr) {
     finalAsk = finalCount;
   }
 
-  var newAd = '<a id="blue-state-ask" target="_blank" href="' + client.url + '"' + 'style="width:' + newAdWidth + 'px; min-height:' + newAdHeight + 'px;">' + 'We blocked ' + finalCount + ' ads on this page. Consider donating $' + finalAsk + ' to ' + client.title + '</a>';
+  var newAd = '<a id="blue-state-ask" target="_blank" href="' + client.url + '">' +
+    'We blocked ' + finalCount + ' ads on this page. Consider donating $' +
+    finalAsk + ' to ' + client.title + '</a>';
 
-  $('.replaceThisItem').append(newAd).show();
+  $('body').prepend(newAd).show();
 }
 
 // do all this stuff only when the page finishes loading
@@ -93,17 +71,6 @@ $(document).ready(function() {
   sizes = getJSONData(chrome.extension.getURL('data/clients.json'));
 
   ads.each(function() {
-
-    // on the first iteration of the each
-    if (counter === 0) {
-      // mark the ad space
-      $(this).addClass('replaceThisItem').empty();
-      // get the width of it
-      replaceAdWidth = $(this).width();
-      // find the closet ad space
-      newAdWidth = closest(replaceAdWidth, sizes);
-    }
-
     // hide everything
     $(this).hide();
     // iterate to keep count
@@ -121,5 +88,5 @@ $(window).load(function() {
   var clients = getJSONData(chrome.extension.getURL('data/clients.json')),
   clientsRandomized = shuffle(clients);
 
-  createNewAd(clientsRandomized[0], sizes);
+  createNewAd(clientsRandomized[0]);
 });
