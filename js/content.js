@@ -47,6 +47,25 @@ function getJSONData(url) {
   return data;
 }
 
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 // LETS CREATE US A NEW ADD
 function createNewAd(client, sizeArr) {
   var index = sizeArr.map(function(ad) { return ad.w; }).indexOf(newAdWidth),
@@ -102,7 +121,8 @@ $(document).ready(function() {
 
 // only create the new ad after the page finishes loading
 $(window).load(function() {
-  var clients = getJSONData(chrome.extension.getURL('data/clients.json'));
+  var clients = getJSONData(chrome.extension.getURL('data/clients.json')),
+  clientsRandomized = shuffle(clients);
 
-  createNewAd(clients[0], sizes);
+  createNewAd(clientsRandomized[0], sizes);
 });
