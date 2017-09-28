@@ -58,8 +58,9 @@ function createNewAd(client) {
 
   var newAd = '<a id="blue-state-ask" target="_blank" href="' +
     client.url + '?default_amt=' + finalCount + '"><span>' +
-    'We blocked ' + finalCount + ' ads on this page. Consider donating $' +
-    finalAsk + ' to ' + client.title + '.</span></a>';
+    'We blocked ' + finalCount + ' ads on this page. ' +
+    '<strong>Consider donating $' + finalAsk + ' to ' + client.title +
+    '</strong>.</span></a>';
 
   $('body').prepend(newAd).show();
 }
@@ -86,10 +87,6 @@ $(document).ready(function() {
 
   if (finalCount > 0) {
     createNewAd(clientsRandomized[0]);
+    $('body').addClass('bsd-ad-loaded');
   }
-});
-
-// only create the new ad after the page finishes loading
-$(window).load(function() {
-  $('body').addClass('bsd-ad-loaded');
 });
