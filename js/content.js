@@ -6,21 +6,23 @@
 // OK LETS TRY SOME SHIT
 
 // global variables
-var adSizesArray = ['250', '200', '468', '728', '300', '336', '120', '160', '300', '970'],
-  replaceAdWidth,
-  closestAdSize;
+var adSizesArrayWidth = ['250', '200', '468', '728', '300', '336', '120', '160', '970'],
+    adSizesArrayHeight = ['250','200','60','90','250','280','600','600','90'],
+    newAdWidth,
+    newAdHeight,
+    closestAdSize;
 
 // function that finds the closest ad sizing based on whatever the first ad item blocked is
 function closest(num) {
 
-  var curr = adSizesArray[0],
+  var curr = adSizesArrayWidth[0],
       diff = Math.abs(num - curr);
 
-  for (var val = 0; val < adSizesArray.length; val++) {
-    var newdiff = Math.abs(num - adSizesArray[val]);
+  for (var val = 0; val < adSizesArrayWidth.length; val++) {
+    var newdiff = Math.abs(num - adSizesArrayWidth[val]);
     if (newdiff < diff) {
       diff = newdiff;
-      curr = adSizesArray[val];
+      curr = adSizesArrayWidth[val];
     }
   }
 
@@ -38,13 +40,13 @@ $(document).ready(function() {
     // on the first iteration of the each
     if (counter === 0) {
       // mark the ad space
-      $(this).addClass('replaceThisItem');
+      $(this).addClass('replaceThisItem').empty();
       // get the width of it
       replaceAdWidth = $(this).width();
       // find the closet ad space
-      closestAdSize = closest(replaceAdWidth);
+      newAdWidth = closest(replaceAdWidth);
       //$(this).css("border", "100px solid pink");
-      console.log(replaceAdWidth);
+      console.log(newAdWidth);
       console.log(closestAdSize);
     }
 
@@ -58,6 +60,16 @@ $(document).ready(function() {
   });
 
   // empty out our target space and SHOW IT
-  $('.replaceThisItem').empty().show();
+  function createNewAd() {
+    var index = adSizesArrayWidth.indexOf(newAdWidth);
+    newAdHeight = adSizesArrayHeight[index];
+    console.log(newAdWidth + ', ' + newAdHeight);
+
+    var newAd = '<div class="blue-state-ask" style="width:'+ newAdWidth +'px;height:'+ newAdHeight +'px;"></div>';
+
+    $('.replaceThisItem').append(newAd).show();
+  }
+
+  createNewAd();
 
 });
