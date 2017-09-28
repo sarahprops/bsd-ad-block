@@ -62,7 +62,7 @@ function createNewAd(client) {
     '<strong>Consider donating $' + finalAsk + ' to ' + client.title +
     '</strong>.</span></a>';
 
-  $('body').prepend(newAd).show();
+  $('body').append(newAd).show();
 }
 
 // do all this stuff only when the page finishes loading
