@@ -60,7 +60,7 @@ function createNewAd(client) {
     }
   }
   var newAd = '<div id="blue-state-ask"><a id="blue-state-ask__bar"' +
-    'target="_blank" href="' + client.url + '?default_amt=' + finalCount +
+    'target="_blank" href="' + client.url + '?default_amt=' + finalAsk +
     '"><span>We blocked ' + finalCount + ' ' + adPronoun + ' on this page. ' +
     '<strong>Consider donating $' + finalAsk + ' to ' + client.title +
     '</strong>.</span></a><a id="blue-state-ask__expander"></a></div>';
