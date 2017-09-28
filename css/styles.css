@@ -13,6 +13,7 @@
   justify-content: center!important;
   margin: auto!important;
   max-width: 100%!important;
+  opacity: 1!important;
   padding: 15px 20px!important;
   position: fixed!important;
   text-align: center!important;
@@ -50,7 +51,7 @@
 
 #blue-state-ask:hover:before,
 #blue-state-ask:focus:before {
-  opacity: 0.2;
+  opacity: 0.3!important;
 }
 
 [id*=google_ad],
