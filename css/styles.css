@@ -32,6 +32,13 @@
   z-index: +1!important;
 }
 
+#blue-state-ask__expander:before {
+  content: "▲"!important;
+  display: block!important;
+  transform: rotate(180deg)!important;
+  transition: all 0.2s ease!important;
+}
+
 #blue-state-ask__expander:focus,
 #blue-state-ask__expander:hover {
   color: #FFF!important;
@@ -46,6 +53,10 @@
   color: #FFF!important;
   top: 0!important;
   transform: translateY(-100%)!important;
+}
+
+#blue-state-ask.is-hidden #blue-state-ask__expander:before {
+  transform: rotate(0)!important;
 }
 
 #blue-state-ask span {

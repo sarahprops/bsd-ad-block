@@ -63,7 +63,7 @@ function createNewAd(client) {
     'target="_blank" href="' + client.url + '?default_amt=' + finalCount +
     '"><span>We blocked ' + finalCount + ' ' + adPronoun + ' on this page. ' +
     '<strong>Consider donating $' + finalAsk + ' to ' + client.title +
-    '</strong>.</span></a><a id="blue-state-ask__expander">▲</a></div>';
+    '</strong>.</span></a><a id="blue-state-ask__expander"></a></div>';
 
   $('body').append(newAd).show();
 }
