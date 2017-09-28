@@ -56,9 +56,10 @@ function createNewAd(client) {
     finalAsk = finalCount;
   }
 
-  var newAd = '<a id="blue-state-ask" target="_blank" href="' + client.url + '">' +
+  var newAd = '<a id="blue-state-ask" target="_blank" href="' +
+    client.url + '?default_amt=' + finalCount + '"><span>' +
     'We blocked ' + finalCount + ' ads on this page. Consider donating $' +
-    finalAsk + ' to ' + client.title + '</a>';
+    finalAsk + ' to ' + client.title + '.</span></a>';
 
   $('body').prepend(newAd).show();
 }
@@ -75,7 +76,6 @@ $(document).ready(function() {
     $(this).hide();
     // iterate to keep count
     counter++;
-
   });
 
   // globalize that var
@@ -88,5 +88,7 @@ $(window).load(function() {
   var clients = getJSONData(chrome.extension.getURL('data/clients.json')),
   clientsRandomized = shuffle(clients);
 
-  createNewAd(clientsRandomized[0]);
+  if (finalCount > 0) {
+    createNewAd(clientsRandomized[0]);
+  }
 });
