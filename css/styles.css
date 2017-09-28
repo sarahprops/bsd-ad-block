@@ -1,18 +1,60 @@
+/* everything has to be important because of risk of conflicting stylingsheets */
 #blue-state-ask {
-  align-items: center;
-  background: #303bb3;
-  background: linear-gradient(to top, #303bb3 0%, #009bde 100%);
-  box-sizing: border-box;
-  color: #fff;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: auto;
-  max-width: 100%;
-  padding: 20px;
-  -webkit-font-smoothing: antialiased;
+  align-items: center!important;
+  background: #303bb3!important;
+  background: linear-gradient(to top, #303bb3 0%, #009bde 100%)!important;
+  bottom: -100px!important;
+  box-sizing: border-box!important;
+  color: #fff!important;
+  cursor: pointer!important;
+  display: flex!important;
+  font-size: 16px!important;
+  flex-direction: row!important;
+  justify-content: center!important;
+  margin: auto!important;
+  max-width: 100%!important;
+  padding: 15px 20px!important;
+  position: fixed!important;
+  text-align: center!important;
+  transition: all 0.2s ease!important;
+  -webkit-font-smoothing: antialiased!important;
+  width: 100%!important;
+  z-index: 99999999999!important;
 }
 
-[id*=google_ad]{
+.bsd-ad-loaded #blue-state-ask {
+  bottom: 0px!important;
+}
+
+#blue-state-ask span {
+  position: relative;
+  z-index: +1;
+}
+
+#blue-state-ask strong {
+  font-weight: bold!important;
+}
+
+#blue-state-ask:before {
+  background: #303bb3!important;
+  bottom: 0;
+  content: '';
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  transition: opacity 0.2s ease;
+  top: 0;
+  width: 100%;
+}
+
+#blue-state-ask:hover:before,
+#blue-state-ask:focus:before {
+  opacity: 0.2;
+}
+
+[id*=google_ad],
+#masthead-ad,
+div[id^="google_ads_iframe"]{
   display: none!important;
 }
