@@ -1,6 +1,19 @@
 #blue-state-ask {
-  background: url(../images/icon.png) #2d3b97 no-repeat left bottom;
+  align-items: center;
+  background-color: #212945;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-sizing: border-box;
   color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin: auto;
+  max-width: 100%;
   padding: 20px;
+}
+
+[id*=google_ad]{
+  display: none!important;
 }
