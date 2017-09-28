@@ -5,7 +5,7 @@
   },
   {
     "title": "Partners in Health",
-    "url": "https://www.pih.org/pages/donate/fight-malaria"
+    "url": "https://donate.pih.org/page/contribute/donate"
   },
   {
     "title": "NAACP",
@@ -16,7 +16,11 @@
     "url": "https://www.unitedway.org/get-involved/ways-to-give/donate"
   },
   {
-    "title": "Covenant House",
-    "url": "https://www.covenanthouse.org/donation-options/donate-now"
+    "title": "March of Dimes",
+    "url": "https://donate.marchofdimes.org/page/contribute/default"
+  },
+  {
+    "title": "Nationwide Children's Hospital",
+    "url": "https://donate.helpkidseverywhere.org/page/contribute/donation-page-default"
   }
 ]
