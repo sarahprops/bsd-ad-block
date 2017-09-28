@@ -64,6 +64,10 @@ $(document).ready(function() {
     var index = adSizesArrayWidth.indexOf(newAdWidth);
     newAdHeight = adSizesArrayHeight[index];
     console.log(newAdWidth + ', ' + newAdHeight);
+
+    var newAd = '<div class="blue-state-ask" style="width:'+ newAdWidth +'px;height:'+ newAdHeight +'px;"></div>';
+
+    $('.replaceThisItem').append(newAd).show();
   }
 
   createNewAd();
