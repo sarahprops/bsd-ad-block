@@ -50,16 +50,16 @@ var sizes = [
 ];
 
 // function that finds the closest ad sizing based on whatever the first ad item blocked is
-function closest(arr, num) {
+function closest(num) {
 
-  var curr = arr[0].w,
+  var curr = sizes[0].w,
       diff = Math.abs(num - curr);
 
-  for (var i = 0; i < arr.length; i++) {
-    var newdiff = Math.abs(num - arr[i].w);
+  for (var i = 0; i < sizes.length; i++) {
+    var newdiff = Math.abs(num - sizes[i].w);
     if (newdiff < diff) {
       diff = newdiff;
-      curr = arr[i].w;
+      curr = sizes[i].w;
     }
   }
 
@@ -81,7 +81,7 @@ $(document).ready(function() {
       // get the width of it
       replaceAdWidth = $(this).width();
       // find the closet ad space
-      newAdWidth = closest(sizes, replaceAdWidth);
+      newAdWidth = closest(replaceAdWidth);
       //$(this).css("border", "100px solid pink");
       console.log(newAdWidth);
       console.log(closestAdSize);
