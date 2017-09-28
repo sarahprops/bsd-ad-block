@@ -102,7 +102,7 @@ $(document).ready(function() {
     newAdHeight = sizes[index].h;
     console.log(newAdWidth + ', ' + newAdHeight);
 
-    var newAd = '<div class="blue-state-ask" style="width:'+ newAdWidth +'px;height:'+ newAdHeight +'px;"></div>';
+    var newAd = '<div id="blue-state-ask" style="width:'+ newAdWidth +'px;height:'+ newAdHeight +'px;"></div>';
 
     $('.replaceThisItem').append(newAd).show();
   }
