@@ -70,7 +70,7 @@ function createNewAd(client) {
 
 // do all this stuff only when the page finishes loading
 $(document).ready(function() {
-  var ads = $('.ad, [class*=dfp], [id*=google_ad], [id^=ad], [class^=ad], [src*=ads], [class*=ads], iframe'),
+  var ads = $('.ad, [class*=dfp], [id*=google_ad], [id^=ads], [class^=ad], [src*=ads], [class*=ads], iframe'),
     counter = 0;
 
     console.log(ads);

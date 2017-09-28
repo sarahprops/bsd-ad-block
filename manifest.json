@@ -25,6 +25,11 @@
     "matches": [
       "<all_urls>"
     ],
+    "exclude_globs": [
+      "*://donate.*.*",
+      "*://action.*.*",
+      "*://*.google.*"
+    ],
     "css": ["css/styles.css"],
     "js": ["js/jquery-2.2.4.min.js", "js/content.js"]
   }],
