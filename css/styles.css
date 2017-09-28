@@ -1,30 +1,48 @@
 /* everything has to be important because of risk of conflicting stylingsheets */
 #blue-state-ask {
-  align-items: center!important;
-  background: #303bb3!important;
-  background: linear-gradient(to top, #303bb3 0%, #009bde 100%)!important;
-  bottom: -100px!important;
-  box-sizing: border-box!important;
-  color: #fff!important;
-  cursor: pointer!important;
-  display: flex!important;
-  font-size: 16px!important;
-  flex-direction: row!important;
-  justify-content: center!important;
-  margin: auto!important;
-  max-width: 100%!important;
-  opacity: 1!important;
-  padding: 15px 20px!important;
+  bottom: 0!important;
   position: fixed!important;
-  text-align: center!important;
+  transform: translateY(100%)!important;
   transition: all 0.2s ease!important;
-  -webkit-font-smoothing: antialiased!important;
   width: 100%!important;
   z-index: 99999999999!important;
 }
 
 .bsd-ad-loaded #blue-state-ask {
-  bottom: 0px!important;
+  transform: translateY(0)!important;
+}
+
+#blue-state-ask__expander {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  color: rgba(255,255,255,0.8)!important;
+  cursor: pointer!important;
+  display: block!important;
+  font-size: 20px!important;
+  line-height: 1!important;
+  padding: 15px!important;
+  position: absolute!important;
+  right: 0px!important;
+  top: 50%!important;
+  transform: translateY(-50%)!important;
+  transition: all 0.2s ease!important;
+  z-index: +1!important;
+}
+
+#blue-state-ask__expander:focus,
+#blue-state-ask__expander:hover {
+  color: #FFF!important;
+}
+
+#blue-state-ask.is-hidden {
+  transform: translateY(100%)!important;
+}
+
+#blue-state-ask.is-hidden #blue-state-ask__expander {
+  background: #303bb3!important;
+  color: #FFF!important;
+  top: 0!important;
+  transform: translateY(-100%)!important;
 }
 
 #blue-state-ask span {
@@ -36,7 +54,27 @@
   font-weight: bold!important;
 }
 
-#blue-state-ask:before {
+#blue-state-ask__bar {
+  align-items: center!important;
+  background: #303bb3!important;
+  background: linear-gradient(to top, #303bb3 0%, #009bde 100%)!important;
+  box-sizing: border-box!important;
+  color: #fff!important;
+  cursor: pointer!important;
+  display: flex!important;
+  font-size: 16px!important;
+  flex-direction: row!important;
+  justify-content: center!important;
+  margin: auto!important;
+  max-width: 100%!important;
+  opacity: 1!important;
+  padding: 15px 55px!important;
+  text-align: center!important;
+  transition: all 0.2s ease!important;
+  -webkit-font-smoothing: antialiased!important;
+}
+
+#blue-state-ask__bar:before {
   background: #303bb3!important;
   bottom: 0;
   content: '';
@@ -49,8 +87,8 @@
   width: 100%;
 }
 
-#blue-state-ask:hover:before,
-#blue-state-ask:focus:before {
+#blue-state-ask__bar:hover:before,
+#blue-state-ask__bar:focus:before {
   opacity: 0.3!important;
 }
 

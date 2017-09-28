@@ -56,11 +56,11 @@ function createNewAd(client) {
     finalAsk = finalCount;
   }
 
-  var newAd = '<a id="blue-state-ask" target="_blank" href="' +
-    client.url + '?default_amt=' + finalCount + '"><span>' +
-    'We blocked ' + finalCount + ' ads on this page. ' +
+  var newAd = '<div id="blue-state-ask"><a id="blue-state-ask__bar"' +
+    'target="_blank" href="' + client.url + '?default_amt=' + finalCount +
+    '"><span> We blocked ' + finalCount + ' ads on this page. ' +
     '<strong>Consider donating $' + finalAsk + ' to ' + client.title +
-    '</strong>.</span></a>';
+    '</strong>.</span></a><a id="blue-state-ask__expander">▲</a></div>';
 
   $('body').append(newAd).show();
 }
@@ -87,6 +87,14 @@ $(document).ready(function() {
 
   if (finalCount > 0) {
     createNewAd(clientsRandomized[0]);
-    $('body').addClass('bsd-ad-loaded');
+
+    setTimeout(function() {
+      $('body').addClass('bsd-ad-loaded');
+    }, 500);
   }
+
+  $('#blue-state-ask__expander').on('click', function(e) {
+    e.preventDefault();
+    $('#blue-state-ask').toggleClass('is-hidden');
+  });
 });
