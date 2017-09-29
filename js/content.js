@@ -73,8 +73,6 @@ $(document).ready(function() {
   var ads = $('.ad, [class*=dfp], [id*=google_ad], [id^=ads], [class^=ad], [src*=ads], [class*=ads], iframe'),
     counter = 0;
 
-    console.log(ads);
-
   sizes = getJSONData(chrome.extension.getURL('data/clients.json'));
 
   ads.each(function() {
