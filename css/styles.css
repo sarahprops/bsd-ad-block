@@ -44,18 +44,18 @@
   color: #FFF!important;
 }
 
-#blue-state-ask.is-hidden {
+#blue-state-ask.bsd-is-hidden {
   transform: translateY(100%)!important;
 }
 
-#blue-state-ask.is-hidden #blue-state-ask__expander {
+#blue-state-ask.bsd-is-hidden #blue-state-ask__expander {
   background: #303bb3!important;
   color: #FFF!important;
   top: 0!important;
   transform: translateY(-100%)!important;
 }
 
-#blue-state-ask.is-hidden #blue-state-ask__expander:before {
+#blue-state-ask.bsd-is-hidden #blue-state-ask__expander:before {
   transform: rotate(0)!important;
 }
 

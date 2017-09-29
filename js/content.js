@@ -98,6 +98,6 @@ $(document).ready(function() {
 
   $('#blue-state-ask__expander').on('click', function(e) {
     e.preventDefault();
-    $('#blue-state-ask').toggleClass('is-hidden');
+    $('#blue-state-ask').toggleClass('bsd-is-hidden');
   });
 });
