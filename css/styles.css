@@ -87,6 +87,7 @@
   text-align: center!important;
   transition: all 0.2s ease!important;
   -webkit-font-smoothing: antialiased!important;
+  width: 100%!important;
 }
 
 #blue-state-ask__bar:before {
@@ -109,6 +110,7 @@
 
 [id*=google_ad],
 #masthead-ad,
-div[id^="google_ads_iframe"]{
+div[id^="google_ads_iframe"],
+[href*=adclick]{
   display: none!important;
 }
